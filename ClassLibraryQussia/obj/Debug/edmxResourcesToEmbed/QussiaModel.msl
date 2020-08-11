@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QussiaDeliveryModelStoreContainer" CdmEntityContainer="QussiaDeliveryEntities">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="QussiaDeliveryModel.Category">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="Img_Path" ColumnName="Img_Path" />
+          <ScalarProperty Name="Ar_Name" ColumnName="Ar_Name" />
+          <ScalarProperty Name="En_Name" ColumnName="En_Name" />
+          <ScalarProperty Name="Cat_ID" ColumnName="Cat_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="QussiaDeliveryModel.Client">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="block" ColumnName="block" />
+          <ScalarProperty Name="points" ColumnName="points" />
+          <ScalarProperty Name="cash" ColumnName="cash" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genders">
+      <EntityTypeMapping TypeName="QussiaDeliveryModel.Gender">
+        <MappingFragment StoreEntitySet="Gender">
+          <ScalarProperty Name="Gender_Name_EN" ColumnName="Gender_Name_EN" />
+          <ScalarProperty Name="Gender_Name_AR" ColumnName="Gender_Name_AR" />
+          <ScalarProperty Name="Gender_ID" ColumnName="Gender_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="QussiaDeliveryModel.Image">
+        <MappingFragment StoreEntitySet="Images">
+          <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+          <ScalarProperty Name="Image_Path" ColumnName="Image_Path" />
+          <ScalarProperty Name="Img_ID" ColumnName="Img_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="QussiaDeliveryModel.Item">
+        <MappingFragment StoreEntitySet="Items">
+          <ScalarProperty Name="Type_ID" ColumnName="Type_ID" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="Cat_ID" ColumnName="Cat_ID" />
+          <ScalarProperty Name="Offer" ColumnName="Offer" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Percent" ColumnName="Percent" />
+          <ScalarProperty Name="Approval" ColumnName="Approval" />
+          <ScalarProperty Name="Item_Price" ColumnName="Item_Price" />
+          <ScalarProperty Name="Item_Desc" ColumnName="Item_Desc" />
+          <ScalarProperty Name="Item_Name" ColumnName="Item_Name" />
+          <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Types">
+      <EntityTypeMapping TypeName="QussiaDeliveryModel.Type">
+        <MappingFragment StoreEntitySet="Types">
+          <ScalarProperty Name="Cat_ID" ColumnName="Cat_ID" />
+          <ScalarProperty Name="Type_Name_EN" ColumnName="Type_Name_EN" />
+          <ScalarProperty Name="Type_Name_AR" ColumnName="Type_Name_AR" />
+          <ScalarProperty Name="Type_ID" ColumnName="Type_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="QussiaDeliveryModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="Cash" ColumnName="Cash" />
+          <ScalarProperty Name="Block" ColumnName="Block" />
+          <ScalarProperty Name="Code_Reset" ColumnName="Code_Reset" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Gender_Category" TypeName="QussiaDeliveryModel.Gender_Category" StoreEntitySet="Gender_Category">
+      <EndProperty Name="Gender">
+        <ScalarProperty Name="Gender_ID" ColumnName="Gender_ID" />
+      </EndProperty>
+      <EndProperty Name="Category">
+        <ScalarProperty Name="Cat_ID" ColumnName="Cat_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Gender_Items" TypeName="QussiaDeliveryModel.Gender_Items" StoreEntitySet="Gender_Items">
+      <EndProperty Name="Item">
+        <ScalarProperty Name="Item_ID" ColumnName="Item_ID" />
+      </EndProperty>
+      <EndProperty Name="Gender">
+        <ScalarProperty Name="Gender_ID" ColumnName="Gender_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

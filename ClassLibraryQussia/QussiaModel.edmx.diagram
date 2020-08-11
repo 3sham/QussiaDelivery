@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bb4bdd9ef9f048668e0ecbe2cc97a721" Name="Diagram1">
+        <EntityTypeShape EntityType="QussiaDeliveryModel.Category" Width="1.5" PointX="0.75" PointY="5" />
+        <EntityTypeShape EntityType="QussiaDeliveryModel.Client" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="QussiaDeliveryModel.Gender" Width="1.5" PointX="3" PointY="3.75" />
+        <EntityTypeShape EntityType="QussiaDeliveryModel.Image" Width="1.5" PointX="7.5" PointY="7.75" />
+        <EntityTypeShape EntityType="QussiaDeliveryModel.Item" Width="1.5" PointX="5.25" PointY="6.5" />
+        <EntityTypeShape EntityType="QussiaDeliveryModel.Type" Width="1.5" PointX="3" PointY="11.25" />
+        <EntityTypeShape EntityType="QussiaDeliveryModel.User" Width="1.5" PointX="3" PointY="7.125" />
+        <AssociationConnector Association="QussiaDeliveryModel.FK_Items_Categories" />
+        <AssociationConnector Association="QussiaDeliveryModel.FK_Types_Categories" />
+        <AssociationConnector Association="QussiaDeliveryModel.FK_Images_Items" />
+        <AssociationConnector Association="QussiaDeliveryModel.FK_Items_Types" />
+        <AssociationConnector Association="QussiaDeliveryModel.FK_Items_Users" />
+        <AssociationConnector Association="QussiaDeliveryModel.Gender_Category" />
+        <AssociationConnector Association="QussiaDeliveryModel.Gender_Items" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

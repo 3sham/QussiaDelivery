@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QussiaDeliveryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="QussiaDeliveryEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="QussiaDeliveryModel.Category" />
+    <EntitySet Name="Clients" EntityType="QussiaDeliveryModel.Client" />
+    <EntitySet Name="Genders" EntityType="QussiaDeliveryModel.Gender" />
+    <EntitySet Name="Images" EntityType="QussiaDeliveryModel.Image" />
+    <EntitySet Name="Items" EntityType="QussiaDeliveryModel.Item" />
+    <EntitySet Name="Types" EntityType="QussiaDeliveryModel.Type" />
+    <EntitySet Name="Users" EntityType="QussiaDeliveryModel.User" />
+    <AssociationSet Name="FK_Items_Categories" Association="QussiaDeliveryModel.FK_Items_Categories">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Types_Categories" Association="QussiaDeliveryModel.FK_Types_Categories">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Type" EntitySet="Types" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Images_Items" Association="QussiaDeliveryModel.FK_Images_Items">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="Image" EntitySet="Images" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Items_Types" Association="QussiaDeliveryModel.FK_Items_Types">
+      <End Role="Type" EntitySet="Types" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Items_Users" Association="QussiaDeliveryModel.FK_Items_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="Gender_Category" Association="QussiaDeliveryModel.Gender_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Gender" EntitySet="Genders" />
+    </AssociationSet>
+    <AssociationSet Name="Gender_Items" Association="QussiaDeliveryModel.Gender_Items">
+      <End Role="Gender" EntitySet="Genders" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Cat_ID" />
+    </Key>
+    <Property Name="Cat_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="En_Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Ar_Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Img_Path" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Items" Relationship="QussiaDeliveryModel.FK_Items_Categories" FromRole="Category" ToRole="Item" />
+    <NavigationProperty Name="Types" Relationship="QussiaDeliveryModel.FK_Types_Categories" FromRole="Category" ToRole="Type" />
+    <NavigationProperty Name="Genders" Relationship="QussiaDeliveryModel.Gender_Category" FromRole="Category" ToRole="Gender" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="Client_ID" />
+    </Key>
+    <Property Name="Client_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="full_name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="phone_number" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cash" Type="Double" />
+    <Property Name="points" Type="Int32" />
+    <Property Name="block" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="Gender_ID" />
+    </Key>
+    <Property Name="Gender_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Gender_Name_AR" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Gender_Name_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Categories" Relationship="QussiaDeliveryModel.Gender_Category" FromRole="Gender" ToRole="Category" />
+    <NavigationProperty Name="Items" Relationship="QussiaDeliveryModel.Gender_Items" FromRole="Gender" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="Img_ID" />
+    </Key>
+    <Property Name="Img_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Image_Path" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Item_ID" Type="Int32" />
+    <NavigationProperty Name="Item" Relationship="QussiaDeliveryModel.FK_Images_Items" FromRole="Image" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="Item_ID" />
+    </Key>
+    <Property Name="Item_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Item_Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Item_Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Item_Price" Type="Double" Nullable="false" />
+    <Property Name="Approval" Type="Boolean" Nullable="false" />
+    <Property Name="Percent" Type="Double" />
+    <Property Name="Discount" Type="Double" />
+    <Property Name="Offer" Type="Boolean" />
+    <Property Name="Cat_ID" Type="Int32" />
+    <Property Name="User_ID" Type="Int32" />
+    <Property Name="Type_ID" Type="Int32" />
+    <NavigationProperty Name="Category" Relationship="QussiaDeliveryModel.FK_Items_Categories" FromRole="Item" ToRole="Category" />
+    <NavigationProperty Name="Images" Relationship="QussiaDeliveryModel.FK_Images_Items" FromRole="Item" ToRole="Image" />
+    <NavigationProperty Name="Type" Relationship="QussiaDeliveryModel.FK_Items_Types" FromRole="Item" ToRole="Type" />
+    <NavigationProperty Name="User" Relationship="QussiaDeliveryModel.FK_Items_Users" FromRole="Item" ToRole="User" />
+    <NavigationProperty Name="Genders" Relationship="QussiaDeliveryModel.Gender_Items" FromRole="Item" ToRole="Gender" />
+  </EntityType>
+  <EntityType Name="Type">
+    <Key>
+      <PropertyRef Name="Type_ID" />
+    </Key>
+    <Property Name="Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type_Name_AR" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Type_Name_EN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cat_ID" Type="Int32" />
+    <NavigationProperty Name="Category" Relationship="QussiaDeliveryModel.FK_Types_Categories" FromRole="Type" ToRole="Category" />
+    <NavigationProperty Name="Items" Relationship="QussiaDeliveryModel.FK_Items_Types" FromRole="Type" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="User_Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Code_Reset" Type="Int32" Nullable="false" />
+    <Property Name="Block" Type="Boolean" Nullable="false" />
+    <Property Name="Cash" Type="Double" />
+    <Property Name="Point" Type="Int32" />
+    <NavigationProperty Name="Items" Relationship="QussiaDeliveryModel.FK_Items_Users" FromRole="User" ToRole="Item" />
+  </EntityType>
+  <Association Name="FK_Items_Categories">
+    <End Type="QussiaDeliveryModel.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="QussiaDeliveryModel.Item" Role="Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Cat_ID" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="Cat_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Types_Categories">
+    <End Type="QussiaDeliveryModel.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="QussiaDeliveryModel.Type" Role="Type" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Cat_ID" />
+      </Principal>
+      <Dependent Role="Type">
+        <PropertyRef Name="Cat_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Images_Items">
+    <End Type="QussiaDeliveryModel.Item" Role="Item" Multiplicity="0..1" />
+    <End Type="QussiaDeliveryModel.Image" Role="Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Item_ID" />
+      </Principal>
+      <Dependent Role="Image">
+        <PropertyRef Name="Item_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Items_Types">
+    <End Type="QussiaDeliveryModel.Type" Role="Type" Multiplicity="0..1" />
+    <End Type="QussiaDeliveryModel.Item" Role="Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type">
+        <PropertyRef Name="Type_ID" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Items_Users">
+    <End Type="QussiaDeliveryModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="QussiaDeliveryModel.Item" Role="Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_ID" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Gender_Category">
+    <End Type="QussiaDeliveryModel.Category" Role="Category" Multiplicity="*" />
+    <End Type="QussiaDeliveryModel.Gender" Role="Gender" Multiplicity="*" />
+  </Association>
+  <Association Name="Gender_Items">
+    <End Type="QussiaDeliveryModel.Gender" Role="Gender" Multiplicity="*" />
+    <End Type="QussiaDeliveryModel.Item" Role="Item" Multiplicity="*" />
+  </Association>
+</Schema>

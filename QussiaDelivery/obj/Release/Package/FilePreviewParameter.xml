@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="gerges96-001-site1" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^E:\\Gerges\\QussiaDelivery\\QussiaDelivery\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^E:\\Gerges\\QussiaDelivery\\QussiaDelivery\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="ClassLibraryQussia.QussiaDeliveryEntities-Web.config Connection String" description="" value="Data Source=SQL5006.site4now.net;Initial Catalog=DB_A64B57_QussiaDelivery;User ID=DB_A64B57_QussiaDelivery_admin;Password=Asdasdasd@1" tags="">
+    <parameterEntry kind="XmlFile" scope="E:\\Gerges\\QussiaDelivery\\QussiaDelivery\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ClassLibraryQussia.QussiaDeliveryEntities']/@connectionString" />
+  </parameter>
+  <parameter name="QussiaDeliveryEntities-Web.config Connection String" description="QussiaDeliveryEntities Connection String used in web.config by the application to access the database." value="Data Source=SQL5006.site4now.net;Initial Catalog=DB_A64B57_QussiaDelivery;User Id=DB_A64B57_QussiaDelivery_admin;Password=" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\Gerges\\QussiaDelivery\\QussiaDelivery\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='QussiaDeliveryEntities']/@connectionString" />
+  </parameter>
+</parameters>

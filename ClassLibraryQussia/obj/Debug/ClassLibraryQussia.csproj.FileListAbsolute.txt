@@ -1,0 +1,12 @@
+E:\Gerges\QussiaDelivery\ClassLibraryQussia\bin\Debug\ClassLibraryQussia.dll.config
+E:\Gerges\QussiaDelivery\ClassLibraryQussia\bin\Debug\ClassLibraryQussia.dll
+E:\Gerges\QussiaDelivery\ClassLibraryQussia\bin\Debug\ClassLibraryQussia.pdb
+E:\Gerges\QussiaDelivery\ClassLibraryQussia\bin\Debug\EntityFramework.dll
+E:\Gerges\QussiaDelivery\ClassLibraryQussia\bin\Debug\EntityFramework.SqlServer.dll
+E:\Gerges\QussiaDelivery\ClassLibraryQussia\bin\Debug\EntityFramework.xml
+E:\Gerges\QussiaDelivery\ClassLibraryQussia\bin\Debug\EntityFramework.SqlServer.xml
+E:\Gerges\QussiaDelivery\ClassLibraryQussia\obj\Debug\ClassLibraryQussia.csproj.CoreCompileInputs.cache
+E:\Gerges\QussiaDelivery\ClassLibraryQussia\obj\Debug\ClassLibraryQussia.csproj.CopyComplete
+E:\Gerges\QussiaDelivery\ClassLibraryQussia\obj\Debug\ClassLibraryQussia.dll
+E:\Gerges\QussiaDelivery\ClassLibraryQussia\obj\Debug\ClassLibraryQussia.pdb
+E:\Gerges\QussiaDelivery\ClassLibraryQussia\obj\Debug\ClassLibraryQussia.csprojAssemblyReference.cache
